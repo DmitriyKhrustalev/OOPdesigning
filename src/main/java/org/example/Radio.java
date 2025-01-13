@@ -3,6 +3,7 @@ package org.example;
 public class Radio {
     private int currentStation; // Номер текущей радиостанции
     private int currentVolume;  // Уровень громкости
+    private int stationCount;
 
     // Метод переключения на следующую станцию
     public void nextStation() {
