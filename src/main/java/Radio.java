@@ -1,5 +1,3 @@
-package org.example;
-
 public class Radio {
     private int currentStation; // Номер текущей радиостанции
     private int currentVolume;  // Уровень громкости
