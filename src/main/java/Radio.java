@@ -1,10 +1,21 @@
 public class Radio {
-    private int currentStation; // Номер текущей радиостанции
-    private int currentVolume;  // Уровень громкости
+    private int currentStation;  // Номер текущей радиостанции
+    private int currentVolume;   // Уровень громкости
+    private int stationCount;    // Количество радиостанций
+
+    // Конструктор по умолчанию (10 станций)
+    public Radio() {
+        this.stationCount = 10;
+    }
+
+    // Конструктор с параметром (задаёт количество станций)
+    public Radio(int stationCount) {
+        this.stationCount = stationCount;
+    }
 
     // Метод переключения на следующую станцию
     public void nextStation() {
-        if (currentStation == 9) {
+        if (currentStation == stationCount - 1) {
             currentStation = 0;
         } else {
             currentStation++;
@@ -14,7 +25,7 @@ public class Radio {
     // Метод переключения на предыдущую станцию
     public void prevStation() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = stationCount - 1;
         } else {
             currentStation--;
         }
@@ -22,7 +33,7 @@ public class Radio {
 
     // Метод установки радиостанции вручную
     public void setStation(int station) {
-        if (station >= 0 && station <= 9) {
+        if (station >= 0 && station < stationCount) {
             currentStation = station;
         }
     }
@@ -41,17 +52,20 @@ public class Radio {
         }
     }
 
-    // Геттер для текущей радиостанции
+    // Геттеры
     public int getCurrentStation() {
         return currentStation;
     }
 
-    // Геттер для текущей громкости
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    // Сеттер для установки текущей громкости (если потребуется)
+    public int getStationCount() {
+        return stationCount;
+    }
+
+    // Сеттер для установки громкости (если потребуется)
     public void setVolume(int volume) {
         if (volume >= 0 && volume <= 100) {
             currentVolume = volume;
